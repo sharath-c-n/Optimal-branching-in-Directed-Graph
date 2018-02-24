@@ -8,8 +8,8 @@ import cns.graphs.common.Graph;
 
 import java.util.Stack;
 
-public class SCC extends CC {
-    SCC(XGraph g){
+public class StronglyConnectedComponent extends ConnectedComponent {
+    StronglyConnectedComponent(XGraph g){
         super(g);
     }
 

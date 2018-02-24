@@ -14,7 +14,7 @@ import java.util.Map;
  * 23/10/2017
  */
 public class SpanningTree {
-    private SCC scc;
+    private StronglyConnectedComponent scc;
     private XGraph.XVertex source;
     private XGraph graph;
 
@@ -159,18 +159,18 @@ public class SpanningTree {
 
 
     /**
-     * Creates a consolidated list of all SCC
+     * Creates a consolidated list of all StronglyConnectedComponent
      * @return :list of all Strongly connected component
      */
     private List<List<XGraph.XVertex>> getComponents() {
-        scc = new SCC(graph);
+        scc = new StronglyConnectedComponent(graph);
         int componentCount = scc.findSSC();
         List<List<XGraph.XVertex>> components = new ArrayList<>();
         for (int i = 0; i < componentCount; i++) {
             components.add(new ArrayList<>());
         }
         for (Graph.Vertex vertex : graph) {
-            CC.CCVertex component = scc.getCCVertex(vertex);
+            ConnectedComponent.CCVertex component = scc.getCCVertex(vertex);
             components.get(component.cno - 1).add((XGraph.XVertex) vertex);
         }
         return components;
